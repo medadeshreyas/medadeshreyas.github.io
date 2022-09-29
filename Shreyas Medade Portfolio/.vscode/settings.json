@@ -1,0 +1,14 @@
+{
+    "prettier.bracketSameLine": true,
+    "prettier.withNodeModules": true,
+    "prettier.useTabs": true,
+    "prettier.vueIndentScriptAndStyle": true,
+    "prettier.trailingComma": "all",
+    "prettier.singleAttributePerLine": true,
+    "prettier.singleQuote": true,
+    "prettier.resolveGlobalModules": true,
+    "prettier.requirePragma": true,
+    "prettier.requireConfig": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.enableDebugLogs": true
+}
