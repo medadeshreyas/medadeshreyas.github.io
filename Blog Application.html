@@ -78,7 +78,7 @@
           <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
                   class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
                 href="index.html#projects-section">My Projects <i class="ion-ios-arrow-forward"></i></a></span>
-            <span>Blog Application</span><i class="ion-ios-arrow-forward"></i></span>
+            <span>Blog Application </span><i class="ion-ios-arrow-forward"></i></span>
           </p>
         </div>
       </div>
@@ -91,140 +91,260 @@
         <div class="col-lg-8 ftco-animate">
           <h2 class="mb-3">About The Application</h2>
 
-          <p>REST API allows bloggers/users to post their ideas and views with images as interactive blogs on their profile, Users can view & search all the blogs & blog categories as per their personal interests & can comment on their views on the posts.
+          <p>The Blogging Application's REST API is a web-based platform that empowers bloggers and users to share their
+            ideas and perspectives in an interactive way. The API allows users to publish blogs on their personal
+            profiles, complete with image support, which enhances the user experience.
+          </p>
+          <p>
 
-            
-            
-            
-            
-            
-          </p>
-          <p>
-            
-            API provides User, Admin Spring Security & JWT Cookie Token Based Authentication, Validation & Authorization.
-            
-          </p>
-          <p>
-            Designed Pagination, Sorting & Searching features.
+            The API also enables users to view and search for blogs and blog categories that align with their personal
+            interests, fostering a community-driven platform. Users can also leave comments on published posts,
+            encouraging engagement.
 
           </p>
           <p>
-            Designed Custom Exception Handling for all Exceptions & Validations.
+            The API uses standard HTTP methods to retrieve, create, update, and delete data, providing a secure and
+            robust way for the Blogging Application to interact with the data, making it easy and safe for users to
+            share their thoughts and ideas. This REST API is an ideal solution for anyone who wants to connect with
+            others and share their ideas through blogging.
 
-            </p>
-            <p>
-              Implemented Custom Request and Response Data Transfer Objects for all HTTP Requests.
-
-            </p>
-            <p>
-              The API's primary objective is to provide Users with both a Simple & User-Friendly Blogging Experience.
-
-            </p>
-            <p>
-            The Application will be used by the two categories of users: 
-
-            </p>
-
-            <li>
-              Admin (Administrator)
-            </li>
-            <li>
-              User (Blogger)
-            </li>
           </p>
-          <!-- <h2 class="mb-3 mt-5"> How does the application functions?</h2>
-          <p>
-            The REST API allows a Customer to Signup, Login & make Transactions to their Contacts, Beneficiaries and
-            other Utility Bills, as well as the Administrator to View all the Customers, Beneficiaries & Transactions of
-            an User, for better customer support.
 
 
-          </p> -->
+          <h2 class="mb-3 mt-5"> What are the A.P.I features ?</h2>
+          <li>
+            The API implements Spring Security and JSON Web Token (J.W.T) for authentication, validation, and
+            authorization of users and administrators.
+          </li>
+          <li>The API includes functionality for pagination, sorting, and searching of data.</li>
+          <li>The API implements custom exception handling for all exceptions and validations.</li>
+          <li>The API utilizes custom request and response data transfer objects for all HTTP requests.</li>
+          <li>The API's primary objective is to provide a streamlined and user-friendly blogging experience for users.
+          </li>
+          <li>Built on REST Architecture.</li>
+          <li>Consumable by clients that support HTTP Protocol.</li>
+          <li>Can be integrated with any application that supports REST API.</li>
+          <li>Suitable for a wide range of use cases. </li>
 
 
-
-          <h2 class="mb-3 mt-5">What services does the application provide to the users?</h2>
+          <h2 class="mb-3 mt-5">What functionalities does the A.P.I provides ?</h2>
 
 
           <br>
 
-          <h4 class="mb-3"> Administrator</h4>
-          <li>
-            Signin & Signout
+          <h5> CUSTOMER FUNCTIONALITIES</h5>
+
+          <li><strong> Authentication Management</strong>
+
+            <ul style="list-style: circle;">
+              <li>
+                Endpoint for Sign Up
+              </li>
+              <li>
+                Endpoint for Sign In
+              </li>
+              <li>
+                Endpoint for Sign Out
+              </li>
+            </ul>
+
+          </li>
+
+          <li><strong> Profile Management</strong>
+
+            <ul style="list-style: circle;">
+              <li>
+
+                Endpoint for Updating User Information
+              </li>
+              <li>
+
+                Endpoint for Retrieving User Information
+              </li>
+              <li>
+
+                Endpoint for Deleting User Account
+              </li>
+
+            </ul>
+
           </li>
           <li>
 
-            Signup other Admins
-                    </li>
-          <li>
+            <strong>Post Management</strong>
 
-            View all Users, Posts, Categories & Comments
+            <ul style="list-style: circle;">
+
+              <li> Endpoint for Creating Posts</li>
+              <li> Endpoint for Updating Posts</li>
+              <li> Endpoint for Retrieving Posts</li>
+              <li> Endpoint for Deleting Posts</li>
+              <li> Endpoint for Adding Comments to Posts</li>
+              <li> Endpoint for Updating Post Images</li>
+              <li> Endpoint for Retrieving Posts with Custom Pagination</li>
+            </ul>
+
+
+
+
           </li>
 
           <li>
 
-            Delete Admin from Database
+            <strong>Category Management</strong>
+
+            <ul style="list-style: circle;">
+              <li>Endpoint for Creating Categories</li>
+              <li>Endpoint for Updating Categories</li>
+              <li>Endpoint for Retrieving Categories</li>
+              <li>Endpoint for Deleting Categories</li>
+
+
+            </ul>
+
+
+
           </li>
+
+          <li>
+
+            <strong>User Search </strong>
+
+            <ul style="list-style: circle;">
+
+              <li>Endpoint for Searching Users by : </li>
+
+              <ul>
+                <li>Name</li>
+              </ul>
+
+            </ul>
+
+          </li>
+
+
+          <li>
+
+            <strong>Searching & Sorting Posts</strong>
+
+            <ul style="list-style: circle;">
+              <li>Endpoint for Searching Posts by : </li>
+
+              <ul>
+                <li>Title</li>
+                <li>Date</li>
+                <li>Category</li>
+              </ul>
+
+            </ul>
+          </li>
+
+
+
+
+          </ul>
+
 
           <br>
 
-          <h4 class="mb-3"> Blogger</h4>
+          <h5> ADMIN FUNCTIONALITIES</h5>
 
-          <li>
-            Signup
-          </li>
-          <li>
+          <li><strong> Authentication Management</strong>
 
-            Signin & Signout
-          </li>
-
-          <li>
-
-            Update all User Details
-          </li>
-          <li>
-
-            View, Create, Update & Delete Posts
-          </li>
-          <li>
-            View, Create, Update & Delete Categories 
-          </li>
-          <li>
-            Add Comments on the Post
-          </li>
-          <li>
-            Update Posts Images
-          </li>
-          <li>
-            Search & Sort Posts
+            <ul style="list-style: circle;">
+              <li>
+                Endpoint for Sign Up Other Admin Accounts
+              </li>
+              <li>
+                Endpoint for Sign In
+              </li>
+              <li>
+                Endpoint for Sign Out
+              </li>
+            </ul>
 
           </li>
-          <li>
-            Search Users by Name
+
+          <li><strong> Profile Management</strong>
+
+            <ul style="list-style: circle;">
+              <li>
+
+                Endpoint for Deleting Admin Accounts
+              </li>
+
+
+            </ul>
 
           </li>
           <li>
 
-            View Posts Based by Custom Pagination
-          </li>
-          <li>
-            Delete Account
+            <strong>Post Management</strong>
+
+            <ul style="list-style: circle;">
+
+              <li> Endpoint for Retrieving Posts</li>
+              <li> Endpoint for Deleting Posts</li>
+
+            </ul>
+
+
+
 
           </li>
+
+
+          <li>
+
+            <strong>Category Management</strong>
+
+            <ul style="list-style: circle;">
+
+              <li>Endpoint for Retrieving Categories</li>
+              <li>Endpoint for Deleting Categories</li>
+
+
+            </ul>
+
+
+
+          </li>
+
+
+          <li>
+
+            <strong>Comments Management</strong>
+
+            <ul style="list-style: circle;">
+
+              <li>Endpoint for Retrieving Comments</li>
+              <li>Endpoint for Deleting Comments</li>
+
+
+            </ul>
+
+
+
+          </li>
+
+
 
           <br>
           <br>
-         
+
         </div> <!-- .col-md-8 -->
         <div class="col-lg-4 sidebar ftco-animate">
 
           <div class="sidebar-box ftco-animate">
             <h3 class="heading-sidebar">Project Information</h3>
             <ul class="categories">
-              <li><a href="#">Category : Spring Boot Based Application </a></li>
-              <li><a href="#">Type : REST API</a></li>
-              <li><a href="#">Database : MySQL Server</a></li>
-              <li><a href="#">Dependencies :  J.W.T Authentication | Spring Security | Spring Data JPA | Spring Web | Spring Boot DevTools | Hibernate | MySQL Driver | J.D.B.C | Validation | Lombok | Model Mapper | Logger </a></li>
+              <li><a href="#">Category : Web Services </a></li>
+              <li><a href="#">Type : REST A.P.I</a></li>
+              <li><a href="#">Database : S.Q.L </a></li>
+              <li><a href="#">Dependencies : Spring Data J.P.A | Spring
+                  Web | Spring Security | J.W.T. | Spring Boot DevTools |
+                  Hibernate | Validation | Model Mapper | Lombok | Logger | My
+                  S.Q.L Driver | Swagger</a></li>
               <li><a href="#">Project Duration : 01 Week</a></li>
               <li><a href="#">Project Type : Collaborative Project : 2 Members </a></li>
               <li>
@@ -239,9 +359,9 @@
           <div class="tag-widget post-tag-container mb-5 mt-5 sidebar-box ftco-animate">
             <h3 class="heading-sidebar">Project Links</h3>
             <div class="tagcloud">
-              <a href="" class="tag-cloud-link" style="font-size:small"> Live
+              <a href="https://github.com/medadeshreyas/Blog-Application" class="tag-cloud-link" style="font-size:small"> Live
                 &nbsp; <span class="icon-play-circle"></span></a>
-              <a href="" class="tag-cloud-link" style="font-size:small">Code &nbsp; <span
+              <a href="https://github.com/medadeshreyas/Blog-Application" class="tag-cloud-link" style="font-size:small">Code &nbsp; <span
                   class="icon-github"></span></a>
             </div>
           </div>
@@ -254,7 +374,6 @@
               <a href="#" class="tag-cloud-link">Spring</a>
               <a href="#" class="tag-cloud-link">Hibernate</a>
               <a href="#" class="tag-cloud-link">Maven</a>
-              <a href="#" class="tag-cloud-link">J.D.B.C</a>
               <a href="#" class="tag-cloud-link">MySQL</a>
               <a href="#" class="tag-cloud-link">Postman</a>
             </div>
@@ -309,15 +428,18 @@
           </div>
         </div>
 
-       <div class="col-md">
+        <div class="col-md">
           <div class="ftco-footer-widget mb-4 ml-md-3">
             <h2 class="ftco-heading-2">Project Links</h2>
             <ul class="list-unstyled">
               <li><a href="AirTable.html"><span class="icon-long-arrow-right mr-2"></span>Airtable.com</a></li>
               <li><a href="LifeStyle.html"><span class="icon-long-arrow-right mr-2"></span>LifeStyle.com</a></li>
-              <li><a href="Student Course Monioring System.html"><span class="icon-long-arrow-right mr-2"></span>Student Course Monitoring System</a></li>
-              <li><a href="Online Cab Booking.html"><span class="icon-long-arrow-right mr-2"></span>Online Cab Booking System</a></li>
-              <li><a href="E Wallet Payment System.html"><span class="icon-long-arrow-right mr-2"></span>E Wallet Payment System</a>
+              <li><a href="Student Course Monioring System.html"><span class="icon-long-arrow-right mr-2"></span>Student
+                  Course Monitoring System</a></li>
+              <li><a href="Online Cab Booking.html"><span class="icon-long-arrow-right mr-2"></span>Online Cab Booking
+                  System</a></li>
+              <li><a href="E Wallet Payment System.html"><span class="icon-long-arrow-right mr-2"></span>E Wallet
+                  Payment System</a>
               </li>
             </ul>
           </div>

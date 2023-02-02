@@ -8,7 +8,8 @@
     "prettier.singleQuote": true,
     "prettier.resolveGlobalModules": true,
     "prettier.requirePragma": true,
-    "prettier.requireConfig": true,
+    "prettier.requireConfig": false,
     "prettier.jsxSingleQuote": true,
-    "prettier.enableDebugLogs": true
+    "prettier.enableDebugLogs": true,
+    "prettier.useEditorConfig": false
 }
