@@ -8768,6 +8768,7 @@ h1, h2, h3, h4, h5,
     position: relative;
     z-index: 1; }
 
+
 .ftco-about ul.about-info {
   display: inline-block;
   padding: 0;
@@ -9236,6 +9237,9 @@ textarea.form-control {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
+  
+  
+
 
 .image-popup {
   cursor: -webkit-zoom-in;

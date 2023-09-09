@@ -11,5 +11,6 @@
     "prettier.requireConfig": false,
     "prettier.jsxSingleQuote": true,
     "prettier.enableDebugLogs": true,
-    "prettier.useEditorConfig": false
+    "prettier.useEditorConfig": false,
+    "liveServer.settings.port": 5501
 }
