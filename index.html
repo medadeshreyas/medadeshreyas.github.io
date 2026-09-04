@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>Shreyas Medade — Senior Software Engineer</title>
+<meta name="description" content="Shreyas Medade — Senior Software Engineer building fintech and transit infrastructure at national scale." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#08090C;
+    --ink-soft:#121319;
+    --ink-raise:#191B23;
+    --line:#282C38;
+    --paper-dim:#A9AFBC;
+    --white:#F6F7F9;
+    --gold:#EAB23E;
+    --violet:#8C6BFF;
+    --gold-dim:rgba(234,178,62,0.14);
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --max:1160px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    background:var(--ink);
+    color:var(--white);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:56px 56px;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px; position:relative;}
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em;}
+  ::selection{background:var(--gold); color:var(--ink);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  /* ---------- SCROLL PROGRESS ---------- */
+  #scrollbar{
+    position:fixed; top:0; left:0; height:3px;
+    background:linear-gradient(90deg, var(--gold), var(--violet));
+    width:0%; z-index:200;
+    transition:width 0.08s linear;
+  }
+
+  /* ---------- REVEAL ---------- */
+  [data-reveal]{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1);
+  }
+  [data-reveal].is-visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(8,9,12,0.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:var(--max); margin:0 auto;}
+  .nav .name{font-family:var(--font-display); font-weight:600; font-size:1.05rem;}
+  .nav .name span{color:var(--gold);}
+  .nav ul{list-style:none; display:flex; gap:30px; align-items:center;}
+  .nav ul li a{font-size:0.92rem; color:var(--paper-dim); transition:color 0.15s ease; position:relative;}
+  .nav ul li a:not(.resume-btn)::after{
+    content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px;
+    background:var(--gold); transition:width 0.2s ease;
+  }
+  .nav ul li a:not(.resume-btn):hover::after{width:100%;}
+  .nav ul li a:hover{color:var(--white);}
+  .nav .resume-btn{
+    font-size:0.88rem; font-weight:600;
+    color:var(--ink); background:var(--gold);
+    padding:9px 18px; border-radius:4px;
+    display:inline-block;
+  }
+.nav-toggle{display:none; background:none; border:none; color:var(--white); font-size:1.5rem; cursor:pointer; padding:8px; margin:-8px;}
+
+  @media (max-width:900px){
+    .nav ul{
+      position:fixed; top:64px; right:0; left:0;
+      flex-direction:column; align-items:flex-start;
+      background:var(--ink-soft);
+      padding:24px 32px; gap:18px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-8px); opacity:0; pointer-events:none;
+      transition:opacity 0.2s ease, transform 0.2s ease;
+    }
+    .nav ul.open{opacity:1; transform:translateY(0); pointer-events:auto;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; padding:76px 0 0; overflow:hidden;}
+  .hero .wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:20px; align-items:center;}
+  .hero-copy{padding:60px 0 80px; position:relative; z-index:2;}
+  .hero .kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.86rem; font-weight:600; color:var(--gold);
+    margin-bottom:22px; letter-spacing:0.02em;
+  }
+  .hero .kicker::before{content:''; width:26px; height:1px; background:var(--gold);}
+
+
+  .hero h1{
+  font-size:clamp(2rem, 4.2vw, 3.4rem);
+  line-height:1.08;
+  color:var(--white);
+}
+  .hero h1 .word{display:inline-block; overflow:hidden; vertical-align:top;}
+  .hero h1 .word span{display:inline-block; transform:translateY(110%); animation:wordUp 0.8s cubic-bezier(.2,.7,.2,1) forwards;}
+  .hero h1 em{font-style:normal; background:linear-gradient(100deg, var(--gold), var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  @keyframes wordUp{to{transform:translateY(0);}}
+  .hero p.lead{
+    margin-top:26px; font-size:1.1rem; color:var(--paper-dim);
+    max-width:50ch;
+    opacity:0; animation:fadeUp 0.7s ease forwards; animation-delay:0.7s;
+  }
+  .hero .cta-row{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;
+    opacity:0; animation:fadeUp 0.7s ease forwards; animation-delay:0.85s;
+  }
+  @keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+
+  .btn-primary, .btn-secondary{
+    font-weight:600; font-size:0.95rem; padding:14px 26px; border-radius:5px;
+    transition:transform 0.2s cubic-bezier(.2,.7,.2,1), background 0.15s ease, border-color 0.15s ease;
+    display:inline-block; will-change:transform;
+  }
+  .btn-primary{background:var(--gold); color:var(--ink);}
+  .btn-secondary{border:1px solid var(--line); color:var(--white);}
+  .btn-secondary:hover{border-color:var(--paper-dim);}
+
+  /* photo */
+  .hero-photo-col{position:relative; height:560px;}
+  .photo-frame{
+    position:absolute; inset:0;
+    clip-path:polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+    background:linear-gradient(155deg, var(--gold) 0%, var(--violet) 100%);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; animation:fadeUp 0.9s ease forwards; animation-delay:0.3s;
+  }
+
+.photo-frame img{width:100%; height:100%; object-fit:cover; object-position:center 15%;}
+  
+  .photo-frame .placeholder-initials{
+  font-family:var(--font-display); font-weight:700; color:rgba(8,9,12,0.55);
+  font-size:8rem; z-index:1; mix-blend-mode:overlay;
+}
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-photo-col{height:320px; margin-bottom:20px; order:-1;}
+    .photo-frame{clip-path:polygon(0 8%, 100% 0, 100% 92%, 0% 100%);}
+    .hero-copy{padding:36px 0 50px;}
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee-strip{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    overflow:hidden; padding:18px 0;
+    background:var(--ink-soft);
+  }
+  .marquee-track{display:flex; width:max-content; animation:scrollX 26s linear infinite;}
+  .marquee-track span{
+    font-family:var(--font-display); font-size:1.05rem; font-weight:600;
+    color:var(--paper-dim); padding:0 28px; white-space:nowrap;
+    display:flex; align-items:center; gap:28px;
+  }
+  .marquee-track span b{color:var(--gold); font-weight:600;}
+  @keyframes scrollX{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:110px 0; position:relative;}
+  .section-head{margin-bottom:52px; position:relative;}
+  .section-head .watermark{
+    position:absolute; top:-58px; left:-6px;
+    font-family:var(--font-display); font-size:6.5rem; font-weight:700;
+    color:rgba(255,255,255,0.035); z-index:0; user-select:none; line-height:1;
+  }
+  .section-head h2{font-size:2.1rem; color:var(--white); position:relative; z-index:1;}
+  .section-head .rule{height:1px; background:var(--line); margin-top:22px;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:64px; align-items:start;}
+  .about-grid p{color:var(--paper-dim); font-size:1.05rem; margin-bottom:18px; max-width:58ch;}
+  .about-grid p strong{color:var(--white); font-weight:600;}
+  .about-grid p.pull{
+    font-family:var(--font-display); font-size:1.5rem; color:var(--white);
+    line-height:1.35; margin-bottom:28px; font-weight:500;
+  }
+  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden;}
+  .stat-cell{background:var(--ink-soft); padding:26px 22px; transition:background 0.2s ease;}
+  .stat-cell:hover{background:var(--ink-raise);}
+  .stat-cell .num{font-family:var(--font-display); font-size:2rem; color:var(--gold); font-weight:700;}
+  .stat-cell .desc{font-size:0.85rem; color:var(--paper-dim); margin-top:6px;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{
+    position:relative; padding:40px 34px; margin-bottom:22px;
+    border:1px solid var(--line); border-radius:10px;
+    background:var(--ink-soft);
+    transition:transform 0.3s cubic-bezier(.2,.7,.2,1), border-color 0.3s ease, background 0.3s ease;
+    overflow:hidden;
+  }
+  .job:hover{transform:translateY(-6px); border-color:#3a3f4d; background:var(--ink-raise);}
+  .job::before{
+    content:attr(data-index);
+    position:absolute; top:-10px; right:14px;
+    font-family:var(--font-display); font-size:6rem; font-weight:700;
+    color:rgba(255,255,255,0.04); pointer-events:none; z-index:0;
+  }
+  .job-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px 20px; margin-bottom:6px; position:relative; z-index:1;}
+  .job-head h3{font-size:1.25rem; color:var(--white);}
+  .job-head .period{font-size:0.85rem; color:var(--gold); white-space:nowrap; font-weight:600;}
+  .job .role-org{color:var(--paper-dim); font-size:0.95rem; margin-bottom:18px; position:relative; z-index:1;}
+  .job .role-org b{color:var(--white); font-weight:600;}
+  .client-block{margin-top:18px; position:relative; z-index:1;}
+  .client-block .client-tag{font-size:0.82rem; color:var(--gold); margin-bottom:10px; font-weight:600;}
+  .client-block .client-tag b{color:var(--white);}
+  .job ul{list-style:none;}
+  .job ul li{position:relative; padding-left:16px; margin-bottom:9px; color:var(--paper-dim); font-size:0.95rem;}
+  .job ul li::before{content:'—'; position:absolute; left:0; color:var(--gold);}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:36px 56px;}
+  .skill-group h3{font-size:0.92rem; color:var(--gold); margin-bottom:16px; font-weight:600;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:9px;}
+  .chip{
+    font-size:0.85rem; color:var(--paper-dim);
+    border:1px solid var(--line); padding:8px 14px; border-radius:20px;
+    transition:border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  }
+  .chip:hover{border-color:var(--gold); color:var(--ink); background:var(--gold); transform:translateY(-2px);}
+
+  /* ---------- EARLIER PROJECTS ---------- */
+  .earlier-note{color:var(--paper-dim); font-size:0.95rem; max-width:60ch; margin-bottom:32px;}
+  .earlier-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:16px;}
+  .earlier-card{
+    position:relative; border:1px solid var(--line); border-radius:8px; padding:20px;
+    overflow:hidden; transition:transform 0.25s ease, border-color 0.25s ease;
+  }
+  .earlier-card::before{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(135deg, var(--gold-dim), transparent 60%);
+    opacity:0; transition:opacity 0.25s ease;
+  }
+  .earlier-card:hover{transform:translateY(-4px); border-color:var(--paper-dim);}
+  .earlier-card:hover::before{opacity:1;}
+  .earlier-card .ec-name{font-size:0.98rem; color:var(--white); font-weight:600; margin-bottom:4px; position:relative;}
+.earlier-card .ec-type{font-size:0.82rem; color:var(--paper-dim); position:relative; line-height:1.45;}
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{border-top:1px solid var(--line); padding:100px 0 40px; position:relative; overflow:hidden;}
+  .contact-top{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; padding-bottom:56px; position:relative; z-index:1;}
+  .contact-top h2{font-size:clamp(2rem,4vw,3rem); color:var(--white); max-width:14ch; line-height:1.05;}
+  .contact-top .sub{color:var(--paper-dim); margin-top:18px; max-width:46ch;}
+  .contact-links{display:grid; gap:2px;}
+  .contact-links a{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:18px 4px; border-bottom:1px solid var(--line);
+    font-size:1.05rem; color:var(--white);
+    transition:color 0.15s ease, padding-left 0.2s ease;
+  }
+  .contact-links a:hover{color:var(--gold); padding-left:10px;}
+  .contact-links a .via{font-size:0.85rem; color:var(--paper-dim);}
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    font-size:0.82rem; color:var(--paper-dim);
+    padding-top:24px; border-top:1px solid var(--line); position:relative; z-index:1;
+  }
+  .foot-watermark{
+    position:absolute; bottom:-6%; left:50%; transform:translateX(-50%);
+    font-family:var(--font-display); font-weight:700; font-size:min(16vw, 11rem);
+    color:rgba(255,255,255,0.03); white-space:nowrap; z-index:0; user-select:none;
+  }
+
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .contact-top{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;}
+    .nav{padding:16px 20px;}
+    section{padding:76px 0;}
+    .job{padding:28px 20px;}
+    .stat-grid{grid-template-columns:1fr;}
+.stat-cell .num{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+
+<div id="scrollbar"></div>
+
+<header>
+  <div class="nav">
+    <a class="name" href="#top">Shreyas Medade<span>.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <ul id="navList">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#earlier">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="resume-btn magnetic" href="assets/docs/Shreyas_Vilas_Medade_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="kicker">Senior Software Engineer · Mumbai, India</div>
+        <h1>
+          <span class="word"><span style="animation-delay:.05s">Engineering</span></span>
+          <span class="word"><span style="animation-delay:.12s">and</span></span>
+          <span class="word"><span style="animation-delay:.19s">building</span></span>
+          <span class="word"><span style="animation-delay:.26s">the</span></span>
+          <span class="word"><span style="animation-delay:.33s"><em>invisible</em></span></span>
+          <span class="word"><span style="animation-delay:.4s">infrastructure</span></span>
+          <span class="word"><span style="animation-delay:.47s">behind</span></span>
+          <span class="word"><span style="animation-delay:.54s"><em>fintech</em></span></span>
+          <span class="word"><span style="animation-delay:.61s">and</span></span>
+          <span class="word"><span style="animation-delay:.68s">transit</span></span>
+          <span class="word"><span style="animation-delay:.75s">technology.</span></span>
+        </h1>
+        <p class="lead">I'm a Senior Software Engineer with 4+ years of experience spanning banking software, multi-bank financial systems, and large-scale domestic &amp; international transit payment platforms — working end to end across backend architecture and system design.</p>
+        <div class="cta-row">
+          <a class="btn-primary magnetic" href="#experience">View my work</a>
+          <a class="btn-secondary magnetic" href="assets/docs/Shreyas_Vilas_Medade_Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+        </div>
+      </div>
+      <div class="hero-photo-col">
+        <div class="photo-frame">
+               <img src="assets/img/hero.webp" alt="Shreyas Medade">
+          <!-- <div class="placeholder-initials">SM</div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>
+        <b>Java 17</b> · Spring Boot · Kafka · HSM Security · Microservices · Fintech Systems · Transit Infrastructure · <b>Java 17</b> · Spring Boot · Kafka · HSM Security · Microservices · Fintech Systems · Transit Infrastructure ·
+      </span>
+      <span>
+        <b>Java 17</b> · Spring Boot · Kafka · HSM Security · Microservices · Fintech Systems · Transit Infrastructure · <b>Java 17</b> · Spring Boot · Kafka · HSM Security · Microservices · Fintech Systems · Transit Infrastructure ·
+      </span>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="watermark">01</div>
+        <h2>About</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="about-grid">
+        <div data-reveal>
+          <p class="pull">I like problems where correctness isn't optional — where a bug means a transaction doesn't clear, or a gate doesn't open.</p>
+          <p>That's mostly what the last four years have been about: building and hardening platforms — across banking, fintech, and transit — where downtime isn't an inconvenience, it's a headline.</p>
+          <p>Most of that work sits in the backend — <strong>Java microservices, HSM-based key security, encryption across banking integrations, and APIs that hold up under real transaction load.</strong> But I've never treated frontend as someone else's problem; I've built and maintained React interfaces for the same systems, because ownership doesn't stop at the API boundary.</p>
+          <p>What I've learned to value most isn't the clever solution, it's the boring, reliable one — <strong>the kind that survives a production incident at 2am, the kind a junior engineer can pick up without me explaining it twice.</strong> That's shaped how I mentor too: I've sat on 70+ technical interviews, less to gatekeep and more to find people who think the same way.</p>
+        </div>
+        <div class="stat-grid" data-reveal>
+          <div class="stat-cell"><div class="num">Millions</div><div class="desc">daily transactions processed by systems I've built</div></div>
+          <div class="stat-cell"><div class="num"><span data-count-to="4" data-suffix="+ yrs">0</span></div><div class="desc">experience across banking, fintech &amp; transit</div></div>
+          <div class="stat-cell"><div class="num"><span data-count-to="2" data-suffix="">0</span></div><div class="desc">countries — domestic &amp; international platforms</div></div>
+          <div class="stat-cell"><div class="num"><span data-count-to="70" data-suffix="+">0</span></div><div class="desc">technical interviews as team mentor</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="watermark">02</div>
+        <h2>Experience</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="job" data-index="01" data-reveal>
+        <div class="job-head"><h3>Senior Software Engineer</h3><span class="period">Mar 2024 — Present</span></div>
+        <div class="role-org"><b>Paycraft Solutions</b>, Mumbai — fintech &amp; transit systems for two national clients</div>
+
+        <div class="client-block">
+          <div class="client-tag">Flagship Project — India: National Transit &amp; Prepaid Card Platform</div>
+          <ul>
+            <li>Designed and delivered 40+ REST APIs for high-volume transit and banking transactions across 7 cities, at ~300–500ms average response time.</li>
+            <li>Integrated HSM for card key management and transaction signing, closing a critical vulnerability in the payment flow.</li>
+            <li>Engineered end-to-end encryption (PGP, AES-256, RSA) across vendor and banking integrations.</li>
+            <li>Led the QR payment module from design to production, coordinating with national payment regulators for compliance — now live across all metro stations.</li>
+            <li>Built an asynchronous Bulk SMS pipeline with Spring Batch and multithreading, achieving ~3× throughput over the legacy system.</li>
+            <li>Reduced average API response time 20–30% through SQL optimisation and index tuning.</li>
+            <li>Mentored the team as Git approver and interviewer, conducting 70+ technical interviews.</li>
+          </ul>
+        </div>
+
+        <div class="client-block">
+          <div class="client-tag">Flagship Project — Dubai: Transit Card Management System</div>
+          <ul>
+            <li>Designed and delivered 15+ REST APIs for a national Transit Card Management system, coordinating directly with international UI teams.</li>
+            <li>Optimised Kafka topic configurations, reducing average message processing time by ~20% for high-volume card operations.</li>
+            <li>Held co-ownership of the Corporate Portal module across 3+ sprint cycles.</li>
+            <li>Secured inter-service communication via TLS mutual authentication and an API gateway layer.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job" data-index="02" data-reveal>
+        <div class="job-head"><h3>Java Developer</h3><span class="period">May 2023 — Sep 2023</span></div>
+        <div class="role-org"><b>Clayfin Technologies</b>, Chennai — Multi-Bank Financial Management System</div>
+        <ul>
+          <li>Led end-to-end API development in Spring Boot and Java 8, delivering 10+ features to documentation and security standards.</li>
+          <li>Replaced two premium third-party API subscriptions with in-house integrations, cutting vendor costs.</li>
+          <li>Optimised existing codebases, cutting response time on key endpoints by ~15%.</li>
+          <li>Introduced the ELK Stack for centralised log aggregation, reducing time-to-debug from hours to minutes.</li>
+        </ul>
+      </div>
+
+      <div class="job" data-index="03" data-reveal>
+        <div class="job-head"><h3>Software Developer Intern</h3><span class="period">Feb 2023 — May 2023</span></div>
+        <div class="role-org"><b>Prospecta Technologies</b></div>
+        <ul>
+          <li>Built and optimised Spring Batch jobs handling 500K+ records per run with validation and transformation pipelines.</li>
+          <li>Reduced failed-run rate from ~12% to under 2% through error handling and retry logic.</li>
+        </ul>
+      </div>
+
+      <div class="job" data-index="04" data-reveal>
+        <div class="job-head"><h3>Full Stack Development Intern</h3><span class="period">Feb 2022 — Jan 2023</span></div>
+        <div class="role-org"><b>Masai School</b> — intensive full-stack programme (Java backend + React.js frontend); 5 end-to-end projects covering REST APIs, Hibernate ORM, and database design.</div>
+      </div>
+
+      <div class="job" data-index="05" data-reveal>
+        <div class="job-head"><h3>Bachelor of Computer Applications (BCA) </h3><span class="period">Jul 2020 — June 2023</span></div>
+        <div class="role-org">MGVIMT</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="watermark">03</div>
+        <h2>Skills</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group" data-reveal>
+          <h3>Languages &amp; frameworks</h3>
+          <div class="chip-row">
+            <span class="chip">Java 8 / 11 / 17</span><span class="chip">Spring Boot</span><span class="chip">Spring MVC</span>
+            <span class="chip">Spring Security</span><span class="chip">Spring Batch</span><span class="chip">Kafka</span>
+            <span class="chip">Hibernate</span><span class="chip">J2EE</span><span class="chip">React.js</span>
+          </div>
+        </div>
+        <div class="skill-group" data-reveal>
+          <h3>Security</h3>
+          <div class="chip-row">
+            <span class="chip">HSM Integration</span><span class="chip">PGP</span><span class="chip">AES-256</span>
+            <span class="chip">RSA</span><span class="chip">TLS / SSL</span><span class="chip">Secure API Design</span>
+          </div>
+        </div>
+        <div class="skill-group" data-reveal>
+          <h3>Databases</h3>
+          <div class="chip-row">
+            <span class="chip">Oracle</span><span class="chip">MS SQL Server</span><span class="chip">SQL Optimisation</span>
+            <span class="chip">Large-dataset management</span>
+          </div>
+        </div>
+        <div class="skill-group" data-reveal>
+          <h3>Architecture &amp; tooling</h3>
+          <div class="chip-row">
+            <span class="chip">Microservices</span><span class="chip">REST APIs</span><span class="chip">API Gateways</span>
+            <span class="chip">Distributed Systems</span><span class="chip">Git</span><span class="chip">ELK Stack</span>
+            <span class="chip">Apache Tomcat</span><span class="chip">JUnit</span><span class="chip">Maven</span><span class="chip">Dynatrace</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="earlier">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="watermark">04</div>
+        <h2>Earlier projects</h2>
+        <div class="rule"></div>
+      </div>
+      <p class="earlier-note" data-reveal>A few personal projects from my early days as a developer — each one chosen to learn something specific, not to ship for a client</p>
+<div class="earlier-grid" data-reveal>
+  <div class="earlier-card">
+    <div class="ec-name">E-Commerce</div>
+    <div class="ec-type">Full product catalog and checkout flow, built REST-first from the ground up.</div>
+  </div>
+  <div class="earlier-card">
+    <div class="ec-name">E-Wallet Payment System</div>
+    <div class="ec-type">A digital wallet simulating balance top-ups, transfers, and transaction history.</div>
+  </div>
+  <div class="earlier-card">
+    <div class="ec-name">Blog Application</div>
+    <div class="ec-type">A blogging platform with authentication, post management, and comment threads.</div>
+  </div>
+  <div class="earlier-card">
+    <div class="ec-name">Online Cab Booking System</div>
+    <div class="ec-type">A ride-booking flow modeling driver matching, fare calculation, and live trip status.</div>
+  </div>
+  <div class="earlier-card">
+    <div class="ec-name">Student Course Monitoring System</div>
+    <div class="ec-type">A JDBC-based tool tracking student enrollment and course progress.</div>
+  </div>
+  <div class="earlier-card">
+    <div class="ec-name">Airtable.com</div>
+    <div class="ec-type">A close UI recreation of Airtable, built to study real-world interface patterns.</div>
+  </div>
+</div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="foot-watermark">CONTACT</div>
+  <div class="wrap">
+    <div class="contact-top">
+      <div data-reveal>
+        <h2>Let's build something that lasts.</h2>
+        <p class="sub">Open to senior backend and fintech engineering roles. The fastest way to reach me is email — I usually reply within a day.</p>
+      </div>
+      <div class="contact-links" data-reveal>
+        <a href="mailto:shreyasmedade06@gmail.com"><span>Email</span><span class="via">shreyasmedade06@gmail.com</span></a>
+        <a href="https://www.linkedin.com/in/shreyas-medade/" target="_blank" rel="noopener"><span>LinkedIn</span><span class="via">/in/shreyas-medade</span></a>
+        <a href="https://github.com/medadeshreyas/" target="_blank" rel="noopener"><span>GitHub</span><span class="via">/medadeshreyas</span></a>
+        <a href="tel:+919307090263"><span>Phone</span><span class="via">+91 93070 90263</span></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Shreyas Medade — Mumbai, Maharashtra, India</span>
+      <span>Built with intent, not a template.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const navList = document.getElementById('navList');
+  toggle.addEventListener('click', () => {
+    const isOpen = navList.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  navList.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navList.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  const bar = document.getElementById('scrollbar');
+  let ticking = false;
+  function updateBar(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if(!ticking){ requestAnimationFrame(updateBar); ticking = true; }
+  });
+  updateBar();
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if(reduceMotion){
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  const counters = document.querySelectorAll('[data-count-to]');
+  function animateCount(el){
+    const target = parseFloat(el.getAttribute('data-count-to'));
+    const suffix = el.getAttribute('data-suffix') || '';
+    if(reduceMotion){ el.textContent = target + suffix; return; }
+    const duration = 1200;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if(progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const countIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        animateCount(entry.target);
+        countIo.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => countIo.observe(el));
+
+  const supportsHover = window.matchMedia('(hover: hover)').matches;
+  if(supportsHover && !reduceMotion){
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.18}px, ${y * 0.35}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
