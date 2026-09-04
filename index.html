@@ -52,7 +52,6 @@
   ::selection{background:var(--gold); color:var(--ink);}
   a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
 
-  /* ---------- SCROLL PROGRESS ---------- */
   #scrollbar{
     position:fixed; top:0; left:0; height:3px;
     background:linear-gradient(90deg, var(--gold), var(--violet));
@@ -60,7 +59,6 @@
     transition:width 0.08s linear;
   }
 
-  /* ---------- REVEAL ---------- */
   [data-reveal]{
     opacity:0;
     transform:translateY(28px);
@@ -68,7 +66,6 @@
   }
   [data-reveal].is-visible{opacity:1; transform:translateY(0);}
 
-  /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:100;
     background:rgba(8,9,12,0.88);
@@ -171,7 +168,6 @@
     .hero-copy{padding:36px 0 50px;}
   }
 
-  /* ---------- MARQUEE ---------- */
   .marquee-strip{
     border-top:1px solid var(--line); border-bottom:1px solid var(--line);
     overflow:hidden; padding:18px 0;
@@ -186,7 +182,6 @@
   .marquee-track span b{color:var(--gold); font-weight:600;}
   @keyframes scrollX{from{transform:translateX(0);} to{transform:translateX(-50%);}}
 
-  /* ---------- SECTION SHARED ---------- */
   section{padding:110px 0; position:relative;}
   .section-head{margin-bottom:52px; position:relative;}
   .section-head .watermark{
@@ -197,7 +192,6 @@
   .section-head h2{font-size:2.1rem; color:var(--white); position:relative; z-index:1;}
   .section-head .rule{height:1px; background:var(--line); margin-top:22px;}
 
-  /* ---------- ABOUT ---------- */
   .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:64px; align-items:start;}
   .about-grid p{color:var(--paper-dim); font-size:1.05rem; margin-bottom:18px; max-width:58ch;}
   .about-grid p strong{color:var(--white); font-weight:600;}
@@ -211,7 +205,6 @@
   .stat-cell .num{font-family:var(--font-display); font-size:2rem; color:var(--gold); font-weight:700;}
   .stat-cell .desc{font-size:0.85rem; color:var(--paper-dim); margin-top:6px;}
 
-  /* ---------- EXPERIENCE ---------- */
   .job{
     position:relative; padding:40px 34px; margin-bottom:22px;
     border:1px solid var(--line); border-radius:10px;
@@ -249,7 +242,6 @@
   }
   .chip:hover{border-color:var(--gold); color:var(--ink); background:var(--gold); transform:translateY(-2px);}
 
-  /* ---------- EARLIER PROJECTS ---------- */
   .earlier-note{color:var(--paper-dim); font-size:0.95rem; max-width:60ch; margin-bottom:32px;}
   .earlier-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:16px;}
   .earlier-card{
@@ -265,7 +257,7 @@
   .earlier-card:hover::before{opacity:1;}
   .earlier-card .ec-name{font-size:0.98rem; color:var(--white); font-weight:600; margin-bottom:4px; position:relative;}
 .earlier-card .ec-type{font-size:0.82rem; color:var(--paper-dim); position:relative; line-height:1.45;}
-  /* ---------- CONTACT / FOOTER ---------- */
+
   footer{border-top:1px solid var(--line); padding:100px 0 40px; position:relative; overflow:hidden;}
   .contact-top{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; padding-bottom:56px; position:relative; z-index:1;}
   .contact-top h2{font-size:clamp(2rem,4vw,3rem); color:var(--white); max-width:14ch; line-height:1.05;}
@@ -377,7 +369,7 @@
       </div>
       <div class="about-grid">
         <div data-reveal>
-          <p class="pull">I like problems where correctness isn't optional — where a bug means a transaction doesn't clear, or a gate doesn't open.</p>
+          <p class="pull">I've built the kind of things nobody thinks about — until they break.</p>
           <p>That's mostly what the last four years have been about: building and hardening platforms — across banking, fintech, and transit — where downtime isn't an inconvenience, it's a headline.</p>
           <p>Most of that work sits in the backend — <strong>Java microservices, HSM-based key security, encryption across banking integrations, and APIs that hold up under real transaction load.</strong> But I've never treated frontend as someone else's problem; I've built and maintained React interfaces for the same systems, because ownership doesn't stop at the API boundary.</p>
           <p>What I've learned to value most isn't the clever solution, it's the boring, reliable one — <strong>the kind that survives a production incident at 2am, the kind a junior engineer can pick up without me explaining it twice.</strong> That's shaped how I mentor too: I've sat on 70+ technical interviews, less to gatekeep and more to find people who think the same way.</p>
@@ -407,7 +399,7 @@
         <div class="client-block">
           <div class="client-tag">Flagship Project — India: National Transit &amp; Prepaid Card Platform</div>
           <ul>
-            <li>Designed and delivered 40+ REST APIs for high-volume transit and banking transactions across 7 cities, at ~300–500ms average response time.</li>
+            <li>Designed and delivered 40+ REST APIs for high-volume transit and banking transactions across metro cities, at ~300–500ms average response time.</li>
             <li>Integrated HSM for card key management and transaction signing, closing a critical vulnerability in the payment flow.</li>
             <li>Engineered end-to-end encryption (PGP, AES-256, RSA) across vendor and banking integrations.</li>
             <li>Led the QR payment module from design to production, coordinating with national payment regulators for compliance — now live across all metro stations.</li>
